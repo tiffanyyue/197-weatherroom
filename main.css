@@ -5,3 +5,29 @@
 	overflow: hidden;
 	background: linear-gradient(#d8e7ff, #f7d9aa);
 }
+
+#world-sunny {
+	
+}
+
+#sound {
+	position: absolute;
+}
+
+#button-rain {
+	position: absolute;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	bottom: 25px;
+	left: 50px;
+}
+
+#button-sunny {
+	position: absolute;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	bottom: 25px;
+	left: 100px;
+}

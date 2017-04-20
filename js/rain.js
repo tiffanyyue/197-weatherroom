@@ -20,12 +20,12 @@ raindrop = function() {
 	this.mesh.add(d);
 }
 
-var raindrops = [];
-var raindropsVel = [];
 
-//to create a rain cloud
-rain = function() {
+//initialize rain
+initRain = function() {
 
+	raindrops = [];
+	raindropsVel = [];
 	raindrops.push(new raindrop());
 
 	for (var i = 0; i < 10; i++) {
@@ -51,10 +51,19 @@ rain = function() {
 
 updateRain = function() {
 	for (var i = 0; i < raindrops.length; i++) {
-			if (raindrops[i].mesh.position.y <= -5) {
+		if (raindrops[i].mesh.position.y <= -10) {
 			raindrops[i].mesh.position.y = 10;
 			raindropsVel[i] = 0;
 		} else {
+			raindrops[i].mesh.position.y -= raindropsVel[i];
+			raindropsVel[i] = raindropsVel[i] + 0.01;
+		}
+	}
+}
+
+rainOut = function () {
+	for (var i = 0; i < raindrops.length; i++) {
+		if (raindrops[i].mesh.position.y >= -10) {
 			raindrops[i].mesh.position.y -= raindropsVel[i];
 			raindropsVel[i] = raindropsVel[i] + 0.01;
 		}
