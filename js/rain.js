@@ -8,7 +8,9 @@ raindrop = function() {
 	var tear = new THREE.ConeGeometry(rSize, rSize * 4, 16);
 	var drop = new THREE.SphereGeometry(rSize, 16, 16, 0, Math.PI * 2, Math.PI/2, 3*Math.PI/4);
 				
-	var waterMat = new THREE.MeshPhongMaterial( { color: 0x46A3C5, transparent: true, opacity: 0.9 } );
+	var waterMat = new THREE.MeshPhongMaterial( { color: 0xb7e0d6, transparent: true, opacity: 0.9 } );
+	waterMat.castShadow = true;
+	waterMat.receiveShadow = true;
 
 	var t = new THREE.Mesh(tear, waterMat);
 	var d = new THREE.Mesh(drop, waterMat);
@@ -20,6 +22,8 @@ raindrop = function() {
 	this.mesh.add(d);
 }
 
+var raindrops;
+var raindropsVel;
 
 //initialize rain
 initRain = function() {
@@ -28,7 +32,8 @@ initRain = function() {
 	raindropsVel = [];
 	raindrops.push(new raindrop());
 
-	for (var i = 0; i < 10; i++) {
+
+	for (var i = 0; i < 20; i++) {
 		
 		for (var j = 0; j < Math.ceil(i * 2 * Math.PI / 2.0); j++) {
 
@@ -45,9 +50,24 @@ initRain = function() {
 			scene.add(item.mesh);
 			
 		}
-	}
-
+	}	
 }
+
+rainSoundOn = function() {
+	//s = $('#sound');
+	//s.volume = 1.0;
+	//console.log(s);
+	//s.animate({volume: 0.5}, 1500);
+	//console.log(s.volume);
+}
+
+rainSoundOff = function() {
+	var s = $('#sound');
+	console.log(s);
+	//s.muted = true;
+	s.animate({volume: 0.0}, 1500);
+}
+
 
 updateRain = function() {
 	for (var i = 0; i < raindrops.length; i++) {
@@ -63,7 +83,7 @@ updateRain = function() {
 
 rainOut = function () {
 	for (var i = 0; i < raindrops.length; i++) {
-		if (raindrops[i].mesh.position.y >= -10) {
+		if (raindrops[i].mesh.position.y >= -15) {
 			raindrops[i].mesh.position.y -= raindropsVel[i];
 			raindropsVel[i] = raindropsVel[i] + 0.01;
 		}
