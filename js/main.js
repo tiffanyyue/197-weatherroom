@@ -2,9 +2,11 @@
 
 var container = document.getElementById('world');
 var scene = new THREE.Scene();
+
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 var renderer = new THREE.WebGLRenderer({alpha : true});
+renderer.shadowMap.enabled = true;
 renderer.setSize( window.innerWidth, window.innerHeight );
 
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -26,10 +28,13 @@ dirLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
 				dirLight.position.set( -1, 1.75, 1 );
 				dirLight.position.multiplyScalar( 50 );
 				scene.add( dirLight );
+
 				dirLight.castShadow = true;
 				dirLight.shadow.mapSize.width = 2048;
 				dirLight.shadow.mapSize.height = 2048;
-				var d = 50;
+				dirLight.shadowDarkness = 0.25;
+
+				var d = 1000;
 				dirLight.shadow.camera.left = -d;
 				dirLight.shadow.camera.right = d;
 				dirLight.shadow.camera.top = d;
@@ -53,12 +58,13 @@ var firstCloud = true;
 			
 var groundPlane = function() {
 	this.mesh = new THREE.Object3D();
-	var ground = new THREE.PlaneGeometry(1000, 1000);
+	var ground = new THREE.PlaneGeometry(3000, 3000);
 	var groundMat = new THREE.MeshPhongMaterial({color: 0x8579b2, side: THREE.DoubleSide});
 
 	//water color: color: 0x4f94af
 
 	var g = new THREE.Mesh(ground, groundMat);
+	g.receiveShadow = true;
 	g.rotation.x = Math.PI/2;
 	g.position.y = -10;
 	this.mesh.add(g);
@@ -182,7 +188,8 @@ function render() {
 		}
 
 		if (firstCloud) {
-			initCloud();
+			initSmallCloud();
+			initLargeCloud();
 			console.log('first cloud');
 			firstCloud = false;
 		}
