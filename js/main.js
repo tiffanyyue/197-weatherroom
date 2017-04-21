@@ -42,18 +42,21 @@ camera.position.z = 5;
 
 scene.fog = new THREE.Fog(0xd8e7ff, 1, 950);
 
-var weather = "snow";
+var weather = "cloud";
 var prev;
 var firstRain = true;
 var firstSun = true;
 var firstSnow = true;
+var firstCloud = true;
 
 //to create a 'ground'
 			
 var groundPlane = function() {
 	this.mesh = new THREE.Object3D();
 	var ground = new THREE.PlaneGeometry(1000, 1000);
-	var groundMat = new THREE.MeshPhongMaterial({color: 0x4f94af, side: THREE.DoubleSide});
+	var groundMat = new THREE.MeshPhongMaterial({color: 0x8579b2, side: THREE.DoubleSide});
+
+	//water color: color: 0x4f94af
 
 	var g = new THREE.Mesh(ground, groundMat);
 	g.rotation.x = Math.PI/2;
@@ -84,6 +87,12 @@ $('#button-snow').click( function () {
 	weather = "snow";
 })
 
+$('#button-cloud').click( function() {
+	console.log('cloud button was clicked');
+	prev = weather;
+	weather = "cloud";
+})
+
 //initRain();
 //initSnow();
 //initSun();
@@ -110,6 +119,7 @@ function render() {
 			console.log('first rain');
 			firstRain = false;
 		}
+		console.log('everything out rain');
 		updateRain();
 		//console.log("It's raining mfffff");
 	} else if (weather == "sun") {
@@ -122,6 +132,9 @@ function render() {
 			rainOut();
 			rainSoundOff();
 			firstRain = true;
+		} else if (prev = "cloud") {
+			cloudOut();
+			firstCloud = true;
 		}
 
 		if (firstSun) {
@@ -129,7 +142,8 @@ function render() {
 			console.log('first sun');
 			firstSun = false;
 		}
-		consoole.log('everything out');
+		//console.log('everything out');
+		//console.log('weather currently is : ' + weather);
 		updateSun();
 		//console.log("It's sunny mfffff");
 	} else if (weather == "snow") {
@@ -141,6 +155,9 @@ function render() {
 			rainOut();
 			rainSoundOff();
 			firstRain = true;
+		} else if (prev = "cloud") {
+			cloudOut();
+			firstCloud = true;
 		}
 
 		//add necessary audio adjustments
@@ -149,8 +166,29 @@ function render() {
 			console.log('first snow');
 			firstSnow = false;
 		}
+		console.log('everything out');
 		updateSnow();
-	}	
+	} else if (weather == "cloud") {
+		if (prev = "sun") {
+			sunOut();
+			firstSun = true;
+		} else if (prev = "rain") {
+			rainOut();
+			rainSoundOff();
+			firstRain = true;
+		} else if (prev = "snow") {
+			snowOut();
+			firstSnow = true;
+		}
+
+		if (firstCloud) {
+			initCloud();
+			console.log('first cloud');
+			firstCloud = false;
+		}
+		console.log('everything out');
+		updateCloud();
+	}
 }
 
 render();

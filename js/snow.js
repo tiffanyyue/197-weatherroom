@@ -26,7 +26,6 @@ initSnow = function() {
 	snowflakesVel = [];
 	snowflakes.push(new snowflake());
 
-
 	for (var i = 0; i < 20; i++) {
 		
 		for (var j = 0; j < Math.ceil(i * 2 * Math.PI / 2.0); j++) {
@@ -38,6 +37,8 @@ initSnow = function() {
 			item.mesh.position.z = i * Math.cos(j * 2 * Math.PI / (i * 2 * Math.PI / 2.0)) + Math.random();
 			//console.log('z position is currently: ' + item.mesh.position.z);
 			item.mesh.position.y = Math.random() * i * 10;
+
+			item.mesh.rotation.x = Math.random();
 
 			snowflakes.push(item);
 			snowflakesVel.push(0);

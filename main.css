@@ -14,6 +14,10 @@
 	background: linear-gradient(rgb(108, 154, 182), rgb(39, 170, 225));
 }
 
+.world-cloud {
+	background: linear-gradient(#b3c1ed, #c8cecd);
+}
+
 #sound {
 	position: absolute;
 }
