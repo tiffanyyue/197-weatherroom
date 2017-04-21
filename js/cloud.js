@@ -152,7 +152,7 @@ updateCloud = function() {
 }
 
 cloudOut = function () {
-	for (var i = 0; i < snowflakes.length; i++) {
+	for (var i = 0; i < clouds.length; i++) {
 		if (clouds[i].mesh.position.x >= -15) {
 			clouds[i].mesh.position.x -= cloudsVel[i];
 			cloudsVel[i] = cloudsVel[i] + 0.01;

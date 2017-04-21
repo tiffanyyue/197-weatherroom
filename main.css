@@ -22,6 +22,15 @@
 	position: absolute;
 }
 
+#refresh {
+	position: absolute;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	bottom: 25px;
+	right: 50px;
+}
+
 #button-rain {
 	position: absolute;
 	background-color: #4CAF50;
@@ -46,5 +55,14 @@
 	border: none;
 	color: white;
 	bottom: 25px;
-	left: 150px;
+	left: 160px;
+}
+
+#button-cloudy {
+	position: absolute;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	bottom: 25px;
+	left: 220px;
 }

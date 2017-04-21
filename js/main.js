@@ -47,7 +47,7 @@ camera.position.z = 5;
 
 scene.fog = new THREE.Fog(0xd8e7ff, 1, 950);
 
-var weather = "cloud";
+var weather = "snow";
 var prev;
 var firstRain = true;
 var firstSun = true;
@@ -73,6 +73,12 @@ var groundPlane = function() {
 var ground = new groundPlane();
 scene.add(ground.mesh);
 
+
+$('#refresh').click ( function() {
+	weathercall();
+	}
+)
+
 $('#button-rain').click( function () {
 	console.log('rain button was clicked');
 	prev = weather;
@@ -93,7 +99,7 @@ $('#button-snow').click( function () {
 	weather = "snow";
 })
 
-$('#button-cloud').click( function() {
+$('#button-cloudy').click( function() {
 	console.log('cloud button was clicked');
 	prev = weather;
 	weather = "cloud";
@@ -105,6 +111,7 @@ $('#button-cloud').click( function() {
 
 
 function render() {
+	console.log(weather);
 	requestAnimationFrame( render );
 	renderer.render( scene, camera );
 
@@ -174,6 +181,7 @@ function render() {
 		}
 		console.log('everything out');
 		updateSnow();
+
 	} else if (weather == "cloud") {
 		if (prev = "sun") {
 			sunOut();
@@ -196,6 +204,8 @@ function render() {
 		console.log('everything out');
 		updateCloud();
 	}
+
+
 }
 
 render();
