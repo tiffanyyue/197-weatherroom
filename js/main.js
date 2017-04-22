@@ -87,18 +87,21 @@ $('#button-rain').click( function () {
 	$('.selected').removeClass('selected');
 	$(this).addClass('selected');
 	$(this).removeClass('not-selected');
+	console.log('PREVIOUS IS ' + prev);
+	console.log('CURRENT IS ' + weather);
 	
 })
 
 $('#button-sunny').click( function () {
 	console.log('sunny button was clicked');
 	prev = weather;
-	console.log('previous weather was ' + prev);
 	weather = "sun";
 	$('.selected').addClass('not-selected');
 	$('.selected').removeClass('selected');
 	$(this).addClass('selected');
 	$(this).removeClass('not-selected');
+	console.log('PREVIOUS IS ' + prev);
+	console.log('CURRENT IS ' + weather);
 
 })
 
@@ -110,6 +113,8 @@ $('#button-snow').click( function () {
 	$('.selected').removeClass('selected');
 	$(this).addClass('selected');
 	$(this).removeClass('not-selected');
+	console.log('PREVIOUS IS ' + prev);
+	console.log('CURRENT IS ' + weather);
 
 })
 
@@ -121,6 +126,8 @@ $('#button-cloudy').click( function() {
 	$('.selected').removeClass('selected');
 	$(this).addClass('selected');
 	$(this).removeClass('not-selected');
+	console.log('PREVIOUS IS ' + prev);
+	console.log('CURRENT IS ' + weather);
 
 })
 
@@ -151,7 +158,7 @@ function render() {
 		}
 		updateRain();
 
-	} else if (weather == "sun") {
+	} else if (weather === "sun") {
 		//add necessary audio adjustments
 		if (prev === "snow") {
 			snowOut();
@@ -172,7 +179,7 @@ function render() {
 		}
 		updateSun();
 
-	} else if (weather == "snow") {
+	} else if (weather === "snow") {
 
 		if (prev === "sun") {
 			sunOut();
@@ -195,7 +202,7 @@ function render() {
 		updateSnow();
 
 	} else if (weather === "cloud") {
-		if (prev = "sun") {
+		if (prev === "sun") {
 			sunOut();
 			firstSun = true;
 		} else if (prev === "rain") {
@@ -212,6 +219,8 @@ function render() {
 			initLargeCloud();
 			firstCloud = false;
 		}
+		console.log('PREVIOUS IS ' + prev);
+		console.log('CURRENT IS ' + weather);
 		//console.log('everything out');
 		updateCloud();
 	}

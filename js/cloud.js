@@ -95,7 +95,7 @@ initSmallCloud = function() {
 			//console.log('z position is currently: ' + item.mesh.position.z);
 			item.mesh.position.y = Math.random() * 20 + 75;
 
-			console.log("i : " + i + "j: " +  j);
+			//console.log("i : " + i + "j: " +  j);
 
 			clouds.push(item);
 			cloudsVel.push(Math.random() * .08);
@@ -115,7 +115,7 @@ initLargeCloud = function() {
 	}
 
 	var s = clouds.length;
-	console.log(s);
+	//console.log(s);
 
 	for (var i = 0; i < 10; i++) {
 		
@@ -129,7 +129,7 @@ initLargeCloud = function() {
 			//console.log('z position is currently: ' + item.mesh.position.z);
 			item.mesh.position.y = Math.random() * 20 + 75;
 
-			console.log("i : " + i + "j: " +  j);
+			//console.log("i : " + i + "j: " +  j);
 
 			clouds.push(item);
 			cloudsVel.push(Math.random() * .08);
@@ -158,6 +158,7 @@ cloudOut = function () {
 			cloudsVel[i] = cloudsVel[i] + 0.01;
 		}
 	}
+	//console.log('CLOUD OUT CALLED');
 }
 
 

@@ -79,6 +79,7 @@ updateRain = function() {
 			raindropsVel[i] = raindropsVel[i] + 0.01;
 		}
 	}
+	//console.log('RAIN UPDATE CALLED');
 }
 
 rainOut = function () {
