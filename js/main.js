@@ -47,7 +47,7 @@ camera.position.z = 5;
 
 scene.fog = new THREE.Fog(0xd8e7ff, 1, 950);
 
-var weather = "snow";
+var weather = "cloud";
 var prev;
 var firstRain = true;
 var firstSun = true;
@@ -89,6 +89,7 @@ $('#button-rain').click( function () {
 $('#button-sunny').click( function () {
 	console.log('sunny button was clicked');
 	prev = weather;
+	console.log('previous weather was ' + prev);
 	weather = "sun";
 
 })
@@ -117,12 +118,15 @@ function render() {
 
 	if (weather === "rain") {
 
-		if (prev == "snow") {
+		if (prev === "snow") {
 			snowOut();
 			firstSnow = true;
-		} else if (prev == "sun") {
+		} else if (prev === "sun") {
 			sunOut();
 			firstSun = true;
+		} else if (prev === "cloud") {
+			cloudOut();
+			firstCloud = true;
 		}
 
 		//add necessary audio adjustments
@@ -137,15 +141,14 @@ function render() {
 		//console.log("It's raining mfffff");
 	} else if (weather == "sun") {
 		//add necessary audio adjustments
-
-		if (prev == "snow") {
+		if (prev === "snow") {
 			snowOut();
 			firstSnow = true;
-		} else if (prev = "rain") {
+		} else if (prev === "rain") {
 			rainOut();
 			rainSoundOff();
 			firstRain = true;
-		} else if (prev = "cloud") {
+		} else if (prev === "cloud") {
 			cloudOut();
 			firstCloud = true;
 		}
@@ -161,14 +164,14 @@ function render() {
 		//console.log("It's sunny mfffff");
 	} else if (weather == "snow") {
 
-		if (prev = "sun") {
+		if (prev === "sun") {
 			sunOut();
 			firstSun = true;
-		} else if (prev = "rain") {
+		} else if (prev === "rain") {
 			rainOut();
 			rainSoundOff();
 			firstRain = true;
-		} else if (prev = "cloud") {
+		} else if (prev === "cloud") {
 			cloudOut();
 			firstCloud = true;
 		}
@@ -182,15 +185,15 @@ function render() {
 		console.log('everything out');
 		updateSnow();
 
-	} else if (weather == "cloud") {
+	} else if (weather === "cloud") {
 		if (prev = "sun") {
 			sunOut();
 			firstSun = true;
-		} else if (prev = "rain") {
+		} else if (prev === "rain") {
 			rainOut();
 			rainSoundOff();
 			firstRain = true;
-		} else if (prev = "snow") {
+		} else if (prev === "snow") {
 			snowOut();
 			firstSnow = true;
 		}
@@ -201,7 +204,7 @@ function render() {
 			console.log('first cloud');
 			firstCloud = false;
 		}
-		console.log('everything out');
+		//console.log('everything out');
 		updateCloud();
 	}
 
