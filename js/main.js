@@ -83,6 +83,10 @@ $('#button-rain').click( function () {
 	console.log('rain button was clicked');
 	prev = weather;
 	weather = "rain";
+	$('.selected').addClass('not-selected');
+	$('.selected').removeClass('selected');
+	$(this).addClass('selected');
+	$(this).removeClass('not-selected');
 	
 })
 
@@ -91,6 +95,10 @@ $('#button-sunny').click( function () {
 	prev = weather;
 	console.log('previous weather was ' + prev);
 	weather = "sun";
+	$('.selected').addClass('not-selected');
+	$('.selected').removeClass('selected');
+	$(this).addClass('selected');
+	$(this).removeClass('not-selected');
 
 })
 
@@ -98,21 +106,26 @@ $('#button-snow').click( function () {
 	console.log('snow button was clicked');
 	prev = weather;
 	weather = "snow";
+	$('.selected').addClass('not-selected');
+	$('.selected').removeClass('selected');
+	$(this).addClass('selected');
+	$(this).removeClass('not-selected');
+
 })
 
 $('#button-cloudy').click( function() {
 	console.log('cloud button was clicked');
 	prev = weather;
 	weather = "cloud";
+	$('.selected').addClass('not-selected');
+	$('.selected').removeClass('selected');
+	$(this).addClass('selected');
+	$(this).removeClass('not-selected');
+
 })
 
-//initRain();
-//initSnow();
-//initSun();
-
-
 function render() {
-	console.log(weather);
+
 	requestAnimationFrame( render );
 	renderer.render( scene, camera );
 
@@ -136,9 +149,8 @@ function render() {
 			console.log('first rain');
 			firstRain = false;
 		}
-		console.log('everything out rain');
 		updateRain();
-		//console.log("It's raining mfffff");
+
 	} else if (weather == "sun") {
 		//add necessary audio adjustments
 		if (prev === "snow") {
@@ -158,10 +170,8 @@ function render() {
 			console.log('first sun');
 			firstSun = false;
 		}
-		//console.log('everything out');
-		//console.log('weather currently is : ' + weather);
 		updateSun();
-		//console.log("It's sunny mfffff");
+
 	} else if (weather == "snow") {
 
 		if (prev === "sun") {
@@ -182,7 +192,6 @@ function render() {
 			console.log('first snow');
 			firstSnow = false;
 		}
-		console.log('everything out');
 		updateSnow();
 
 	} else if (weather === "cloud") {
@@ -201,7 +210,6 @@ function render() {
 		if (firstCloud) {
 			initSmallCloud();
 			initLargeCloud();
-			console.log('first cloud');
 			firstCloud = false;
 		}
 		//console.log('everything out');

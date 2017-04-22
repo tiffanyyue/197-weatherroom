@@ -153,8 +153,8 @@ updateCloud = function() {
 
 cloudOut = function () {
 	for (var i = 0; i < clouds.length; i++) {
-		if (clouds[i].mesh.position.x >= -1000) {
-			clouds[i].mesh.position.x -= 10;
+		if (clouds[i].mesh.position.x >= -3000) {
+			clouds[i].mesh.position.x -= 15;
 			cloudsVel[i] = cloudsVel[i] + 0.01;
 		}
 	}

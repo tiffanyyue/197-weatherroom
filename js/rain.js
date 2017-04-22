@@ -43,7 +43,7 @@ initRain = function() {
 			//console.log('x position is currently: ' + item.mesh.position.x);
 			item.mesh.position.z = i * Math.cos(j * 2 * Math.PI / (i * 2 * Math.PI / 2.0)) + Math.random();
 			//console.log('z position is currently: ' + item.mesh.position.z);
-			item.mesh.position.y = Math.random() * i * 10;
+			item.mesh.position.y = Math.random() * i * 10 + 10;
 
 			raindrops.push(item);
 			raindropsVel.push(0);
@@ -72,7 +72,7 @@ rainSoundOff = function() {
 updateRain = function() {
 	for (var i = 0; i < raindrops.length; i++) {
 		if (raindrops[i].mesh.position.y <= -10) {
-			raindrops[i].mesh.position.y = 10;
+			raindrops[i].mesh.position.y = Math.random() * i * 10 + 5;
 			raindropsVel[i] = 0;
 		} else {
 			raindrops[i].mesh.position.y -= raindropsVel[i];

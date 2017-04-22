@@ -24,16 +24,15 @@
 
 #refresh {
 	position: absolute;
-	background-color: #4CAF50;
 	border: none;
 	color: white;
 	bottom: 25px;
 	right: 50px;
+	background-color: #63a4b2;
 }
 
 #button-rain {
 	position: absolute;
-	background-color: #4CAF50;
 	border: none;
 	color: white;
 	bottom: 25px;
@@ -42,7 +41,6 @@
 
 #button-sunny {
 	position: absolute;
-	background-color: #4CAF50;
 	border: none;
 	color: white;
 	bottom: 25px;
@@ -51,7 +49,6 @@
 
 #button-snow {
 	position: absolute;
-	background-color: #4CAF50;
 	border: none;
 	color: white;
 	bottom: 25px;
@@ -60,9 +57,16 @@
 
 #button-cloudy {
 	position: absolute;
-	background-color: #4CAF50;
 	border: none;
 	color: white;
 	bottom: 25px;
 	left: 220px;
+}
+
+.selected {
+	background-color: #2f726f;
+}
+
+.not-selected {
+	background-color: #63a4b2;
 }
