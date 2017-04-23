@@ -69,8 +69,13 @@ button:hover {
 	left: 220px;
 }
 
+button:focus {
+  outline: none;
+}
+
 .selected {
 	background-color: #2f726f;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .not-selected {
@@ -79,19 +84,30 @@ button:hover {
 
 .location {
 	position: absolute;
-	left: 0px;
-	top: 50px;
+	left: 33%;
+	top: 32%;
 	background: rgba(255, 255, 255, 0);
-	border: none;
+	border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	border-top: none;
+	border-left: none;
+	width: 450px;
+	font-size: 50px;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+	border-right: none;
 }
 
 #location-input {
 	position: absolute;
-	left: 25px;
-	top: 25px;
-	color: white;
+	left: 42%;
+	top: 20%;
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 30px;
 	font-family: 'primary';
-	border-bottom-color: white;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4)
 }
 
 textarea:focus, input:focus{
