@@ -13,13 +13,6 @@ var controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 container.appendChild( renderer.domElement );
 
-/*
-var pointLight = new THREE.PointLight(0xFFFFFF);
-pointLight.position.x = 10;
-pointLight.position.y = 50;
-pointLight.position.z = 130;
-scene.add(pointLight);*/
-
 var hLight = new THREE.HemisphereLight(0xFFFFFF);
 scene.add(hLight);
 
@@ -74,61 +67,45 @@ var ground = new groundPlane();
 scene.add(ground.mesh);
 
 
+var citiesO = {};
+
+var prep = function() {
+	for (var i = 0; i < cities.cities.length; i++) {
+		var name = cities.cities[i].name.replace(' ', '');
+		if (cities.cities[i].country === 'US') {
+			citiesO[name] = {country: cities.cities[i].country, id: cities.cities[i].id };
+			//console.log(citiesO[name]);
+		}
+		
+	}
+	console.log('done prepping');
+}
+
+prep();
+
+
 $('#refresh').click ( function() {
-	weathercall();
+	var city = $('.location').get(0).value.replace(' ', '');
+	console.log(citiesO[city].id);
+	weathercall(citiesO[city].id);
 	}
 )
 
+
 $('#button-rain').click( function () {
-	console.log('rain button was clicked');
-	prev = weather;
-	weather = "rain";
-	$('.selected').addClass('not-selected');
-	$('.selected').removeClass('selected');
-	$(this).addClass('selected');
-	$(this).removeClass('not-selected');
-	console.log('PREVIOUS IS ' + prev);
-	console.log('CURRENT IS ' + weather);
-	
-})
+	triggerRain();
+});
 
 $('#button-sunny').click( function () {
-	console.log('sunny button was clicked');
-	prev = weather;
-	weather = "sun";
-	$('.selected').addClass('not-selected');
-	$('.selected').removeClass('selected');
-	$(this).addClass('selected');
-	$(this).removeClass('not-selected');
-	console.log('PREVIOUS IS ' + prev);
-	console.log('CURRENT IS ' + weather);
-
+	triggerSun();
 })
 
 $('#button-snow').click( function () {
-	console.log('snow button was clicked');
-	prev = weather;
-	weather = "snow";
-	$('.selected').addClass('not-selected');
-	$('.selected').removeClass('selected');
-	$(this).addClass('selected');
-	$(this).removeClass('not-selected');
-	console.log('PREVIOUS IS ' + prev);
-	console.log('CURRENT IS ' + weather);
-
+	triggerSnow();
 })
 
 $('#button-cloudy').click( function() {
-	console.log('cloud button was clicked');
-	prev = weather;
-	weather = "cloud";
-	$('.selected').addClass('not-selected');
-	$('.selected').removeClass('selected');
-	$(this).addClass('selected');
-	$(this).removeClass('not-selected');
-	console.log('PREVIOUS IS ' + prev);
-	console.log('CURRENT IS ' + weather);
-
+	triggerCloudy();
 })
 
 function render() {
@@ -221,9 +198,6 @@ function render() {
 			initLargeCloud();
 			firstCloud = false;
 		}
-		console.log('PREVIOUS IS ' + prev);
-		console.log('CURRENT IS ' + weather);
-		//console.log('everything out');
 		updateCloud();
 	}
 
