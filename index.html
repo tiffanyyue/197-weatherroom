@@ -12,14 +12,17 @@
 	<body>
 
 		<div id='world' class = 'world-cloud'></div>
-		<audio id = 'sound' loop autoplay preload><source src = "audio/rain.mp3" type = "audio/mpeg" > </audio>
+		<audio id = 'sound-rain' loop autoplay preload><source src = "audio/rain.mp3" type = "audio/mpeg" > </audio>
 
-		<button id = 'button-rain' class = "not-selected"> rain </button>
+
+		<div id = "location-input">Where are you?</div>
+		<input type="text" name="location" class="location" autofocus="off" autocomplete="off" placeholder=""/>
+
+		<button id = 'button-rain' class = "selected"> rain </button>
 		<button id = 'button-sunny' class = "not-selected"> sunny </button>
 		<button id = 'button-snow' class = "not-selected"> snow </button>
 		<button id = 'button-cloudy' class = "not-selected"> cloudy </button>
 		<button id = 'refresh'>refresh </button>
-		<button id = 'mute'>
 
 		<script src="jquery-3.1.0.js"></script>
 		<script src = "js/weathercall.js"></script>22
@@ -30,10 +33,6 @@
 		<script src= "js/rain.js"></script>
 		<script src = "js/sun.js"></script>
 		<script src= "js/main.js"></script>
-
-		<div>test</div>
-
-
 
 	</body>
 </html>

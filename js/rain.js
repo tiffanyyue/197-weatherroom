@@ -54,16 +54,16 @@ initRain = function() {
 }
 
 rainSoundOn = function() {
-	//s = $('#sound');
+	s = $('#sound-rain');
 	//s.volume = 1.0;
-	//console.log(s);
-	//s.animate({volume: 0.5}, 1500);
+	console.log(s.get(0).volume);
+	s.get(0).animate({volume: 1.0}, 800);
 	//console.log(s.volume);
 }
 
 rainSoundOff = function() {
-	var s = $('#sound');
-	console.log(s);
+	var s = $('#sound-rain');
+	//console.log(s);
 	//s.muted = true;
 	s.animate({volume: 0.0}, 1500);
 }

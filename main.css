@@ -1,3 +1,8 @@
+@font-face {
+	font-family: primary;
+    src: url(Ubuntu-Light.ttf);
+}
+
 #world {
 	position: absolute;
 	width: 100%;
@@ -22,43 +27,44 @@
 	position: absolute;
 }
 
-#refresh {
-	position: absolute;
+button {
+	font-family: 'primary';
+	text-align: center;
 	border: none;
 	color: white;
+	position: absolute;
+	border-radius: 8px;
+	-webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+
+}
+
+button:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#refresh {
 	bottom: 25px;
 	right: 50px;
 	background-color: #63a4b2;
 }
 
 #button-rain {
-	position: absolute;
-	border: none;
-	color: white;
 	bottom: 25px;
 	left: 50px;
 }
 
 #button-sunny {
-	position: absolute;
-	border: none;
-	color: white;
 	bottom: 25px;
 	left: 100px;
 }
 
 #button-snow {
-	position: absolute;
-	border: none;
-	color: white;
 	bottom: 25px;
 	left: 160px;
 }
 
 #button-cloudy {
-	position: absolute;
-	border: none;
-	color: white;
 	bottom: 25px;
 	left: 220px;
 }
@@ -69,4 +75,25 @@
 
 .not-selected {
 	background-color: #63a4b2;
+}
+
+.location {
+	position: absolute;
+	left: 0px;
+	top: 50px;
+	background: rgba(255, 255, 255, 0);
+	border: none;
+}
+
+#location-input {
+	position: absolute;
+	left: 25px;
+	top: 25px;
+	color: white;
+	font-family: 'primary';
+	border-bottom-color: white;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }

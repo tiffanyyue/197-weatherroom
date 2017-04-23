@@ -47,7 +47,7 @@ camera.position.z = 5;
 
 scene.fog = new THREE.Fog(0xd8e7ff, 1, 950);
 
-var weather = "cloud";
+var weather = "rain";
 var prev;
 var firstRain = true;
 var firstSun = true;
@@ -186,7 +186,9 @@ function render() {
 			firstSun = true;
 		} else if (prev === "rain") {
 			rainOut();
-			rainSoundOff();
+			if (!firstRain) {
+				rainSoundOff();
+			}
 			firstRain = true;
 		} else if (prev === "cloud") {
 			cloudOut();
