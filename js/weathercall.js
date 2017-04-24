@@ -13,7 +13,7 @@ weathercall = function(id) {
 	console.log(response);
 	if (response === "Clouds") {
 		triggerCloudy();
-	} else if (response === "Drizzle") {
+	} else if (response === "Drizzle" || response === "Mist" || response === "Rain") {
 		triggerRain();
 	} else if (response === "") {
 		triggerSnow();

@@ -7,5 +7,8 @@
     "grunt": "^0.4.5",
     "gulp": "^3.9.0",
     "gulp-eslint": "^2.0.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.6"
   }
 }

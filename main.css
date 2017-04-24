@@ -36,6 +36,9 @@ button {
 	border-radius: 8px;
 	-webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
+    font-size: 14px;
+    height: 30px;
+    width: 80px;
 
 }
 
@@ -56,17 +59,17 @@ button:hover {
 
 #button-sunny {
 	bottom: 25px;
-	left: 100px;
+	left: 180px;
 }
 
 #button-snow {
 	bottom: 25px;
-	left: 160px;
+	left: 310px;
 }
 
 #button-cloudy {
 	bottom: 25px;
-	left: 220px;
+	left: 440px;
 }
 
 button:focus {
@@ -84,8 +87,8 @@ button:focus {
 
 .location {
 	position: absolute;
-	left: 33%;
-	top: 32%;
+	left: 50px;
+	top: 200px;
 	background: rgba(255, 255, 255, 0);
 	border-bottom: 4px solid rgba(255, 255, 255, 0.8);
 	border-top: none;
@@ -93,16 +96,28 @@ button:focus {
 	width: 450px;
 	font-size: 50px;
 	color: rgba(255, 255, 255, 0.8);
-	text-align: center;
 	border-right: none;
 }
 
 #location-input {
 	position: absolute;
-	left: 42%;
-	top: 20%;
+	left: 50px;
+	top: 170px;
 	color: rgba(255, 255, 255, 0.8);
-	font-size: 30px;
+	font-size: 20px;
+	font-family: 'primary';
+}
+
+#location-input:placeholder {
+	font-family: 'primary';
+}
+
+#temp {
+	position: absolute;
+	left: 50px;
+	top: 290px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.8);
 	font-family: 'primary';
 }
 

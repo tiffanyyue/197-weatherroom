@@ -13,10 +13,20 @@
 
 		<div id='world' class = 'world-cloud'></div>
 		<audio id = 'sound-rain' loop autoplay preload><source src = "audio/rain.mp3" type = "audio/mpeg" > </audio>
+		<audio id = 'sound-sunny' loop autoplay preload><source src = "audio/sunny.mp3" type = "audio/mpeg" > </audio>
+		<audio id = 'sound-snow' loop autoplay preload><source src = "audio/snow.mp3" type = "audio/mpeg" > </audio>
+		<audio id = 'sound-cloudy' loop autoplay preload><source src = "audio/cloud.mp3" type = "audio/mpeg" > </audio>
 
 
 		<div id = "location-input">Where am I?</div>
-		<input type="text" name="location" class="location" autofocus="off" autocomplete="off" placeholder="Philadelphia, PA"/>
+		<input type="text" name="location" class="location" autofocus="off" autocomplete="off" placeholder="Philadelphia"/>
+		<div id = 'temp'><div id = 'inner'></div></div>
+
+		<script id="temperature-template" type="text/x-handlebars-template">
+		  	<div class="temperature">
+		    	<h1>{{temp}} &#x2109;</h1>
+		  	</div>
+		</script>
 
 		<button id = 'button-rain' class = "selected"> rain </button>
 		<button id = 'button-sunny' class = "not-selected"> sunny </button>
@@ -24,8 +34,12 @@
 		<button id = 'button-cloudy' class = "not-selected"> cloudy </button>
 		<button id = 'refresh'>refresh </button>
 
+		<script src = 'handlebars-v4.0.5.js'></script>
 		<script src="jquery-3.1.0.js"></script>
-		<script src = "js/weathercall.js"></script>22
+		<script src="cities.js"></script>
+		<script src = "citiesTest.js"></script>
+		<script src = 'js/trigger.js'></script>
+		<script src = "js/weathercall.js"></script>
 		<script src= "js/three.js"></script>
 		<script src="js/OrbitControls.js"></script>
 		<script src= "js/cloud.js"></script>
