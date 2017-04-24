@@ -54,8 +54,18 @@ var updateTemp = function(t) {
 	var template = Handlebars.compile(source);
 	var context = {temp: t};
 	var html    = template(context);
-	console.log(document.getElementById('temp'));
+	//console.log(document.getElementById('temp'));
 	$(document.getElementById('temp')).html(html);
-	console.log(html);
+	//console.log(html);
 	console.log('temperature is updated');
+}
+
+var updateCondition = function(c) {
+	var source = $('#condition-template').html();
+	var template = Handlebars.compile(source);
+	var context = {condition: c};
+	var html = template(context);
+	$(document.getElementById('condition')).html(html);
+	console.log('condition is updated');
+
 }

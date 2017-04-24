@@ -22,4 +22,6 @@ weathercall = function(id) {
 		console.log('sun was triggered');
 	}
 	updateTemp(JSON.parse(xhr.responseText).main.temp);
+	console.log('weather is !!' + response);
+	updateCondition(response);
 }

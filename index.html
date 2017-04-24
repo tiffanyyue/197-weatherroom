@@ -20,13 +20,20 @@
 
 		<div id = "location-input">Where am I?</div>
 		<input type="text" name="location" class="location" autofocus="off" autocomplete="off" placeholder="Philadelphia"/>
-		<div id = 'temp'><div id = 'inner'></div></div>
+		<div id = 'condition'><div id = 'innerCondition'></div></div>
+		<div id = 'temp'><div id = 'innerWeather'></div></div>
 
+		<script id="condition-template" type="text/x-handlebars-template">
+		  	<div class="condition">
+		    	<h1>{{condition}}</h1>
+		  	</div>
+		</script>
 		<script id="temperature-template" type="text/x-handlebars-template">
 		  	<div class="temperature">
 		    	<h1>{{temp}} &#x2109;</h1>
 		  	</div>
 		</script>
+
 
 		<button id = 'button-rain' class = "selected"> rain </button>
 		<button id = 'button-sunny' class = "not-selected"> sunny </button>

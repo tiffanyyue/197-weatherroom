@@ -36,9 +36,9 @@ button {
 	border-radius: 8px;
 	-webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
-    font-size: 14px;
-    height: 30px;
-    width: 80px;
+    font-size: 13px;
+    height: 26px;
+    width: 70px;
 
 }
 
@@ -115,8 +115,17 @@ button:focus {
 #temp {
 	position: absolute;
 	left: 50px;
+	top: 310px;
+	font-size: 8px;
+	color: rgba(255, 255, 255, 0.8);
+	font-family: 'primary';
+}
+
+#condition {
+	position: absolute;
+	left: 50px;
 	top: 290px;
-	font-size: 12px;
+	font-size:8px;
 	color: rgba(255, 255, 255, 0.8);
 	font-family: 'primary';
 }
