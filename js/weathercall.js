@@ -6,22 +6,17 @@ weathercall = function(id) {
 	xhr.open("GET", call, false);
 
 	xhr.send();
-	console.log(xhr.status);
 	var response = JSON.parse(xhr.responseText).weather[0].main;
-	console.log(JSON.parse(xhr.responseText).main.temp);
 
-	console.log(response);
 	if (response === "Clouds") {
 		triggerCloudy();
 	} else if (response === "Drizzle" || response === "Mist" || response === "Rain") {
 		triggerRain();
-	} else if (response === "") {
+	} else if (response === "Snow" || response === "Snowstorm" || response === "Flurry") {
 		triggerSnow();
 	} else if (response === "Clear") {
 		triggerSun();
-		console.log('sun was triggered');
 	}
 	updateTemp(JSON.parse(xhr.responseText).main.temp);
-	console.log('weather is !!' + response);
 	updateCondition(response);
 }

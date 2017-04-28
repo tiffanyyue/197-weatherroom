@@ -3,6 +3,11 @@
     src: url(Ubuntu-Light.ttf);
 }
 
+@font-face {
+	font-family: secondary;
+	src: url(Scheherazade-Regular.ttf);
+}
+
 #world {
 	position: absolute;
 	width: 100%;
@@ -36,9 +41,10 @@ button {
 	border-radius: 8px;
 	-webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
-    font-size: 13px;
+    font-size: 11px;
     height: 26px;
     width: 70px;
+    letter-spacing: 2px;
 
 }
 
@@ -106,6 +112,7 @@ button:focus {
 	color: rgba(255, 255, 255, 0.8);
 	font-size: 20px;
 	font-family: 'primary';
+	letter-spacing: 6px;
 }
 
 #location-input:placeholder {
@@ -131,7 +138,7 @@ button:focus {
 }
 
 input::placeholder {
-  color: rgba(255, 255, 255, 0.4)
+  color: rgba(255, 255, 255, 0.4);
 }
 
 textarea:focus, input:focus{
