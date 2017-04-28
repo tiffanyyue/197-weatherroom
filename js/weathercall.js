@@ -1,6 +1,6 @@
 weathercall = function(id) {
 
-	var call = 'http://api.openweathermap.org/data/2.5/weather?id=' + id + '&APPID=1c5c83b160d3ca7ec76ccead0bd9d92d&units=imperial';
+	var call = 'api.openweathermap.org/data/2.5/weather?id=' + id + '&APPID=1c5c83b160d3ca7ec76ccead0bd9d92d&units=imperial';
 
 	$.ajax({
 	      type: 'GET',
@@ -26,7 +26,5 @@ weathercall = function(id) {
 			updateCondition(response);
 	        
 	      }
-	    });
-
-
+	});
 }

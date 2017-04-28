@@ -103,6 +103,7 @@ button:focus {
 	font-size: 50px;
 	color: rgba(255, 255, 255, 0.8);
 	border-right: none;
+	letter-spacing: 6px;
 }
 
 #location-input {
@@ -117,15 +118,17 @@ button:focus {
 
 #location-input:placeholder {
 	font-family: 'primary';
+	letter-spacing: 6px;
 }
 
 #temp {
 	position: absolute;
 	left: 50px;
-	top: 310px;
+	top: 320px;
 	font-size: 8px;
 	color: rgba(255, 255, 255, 0.8);
 	font-family: 'primary';
+	letter-spacing: 6px;
 }
 
 #condition {
@@ -135,6 +138,7 @@ button:focus {
 	font-size:8px;
 	color: rgba(255, 255, 255, 0.8);
 	font-family: 'primary';
+	letter-spacing: 6px;
 }
 
 input::placeholder {

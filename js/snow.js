@@ -36,7 +36,7 @@ initSnow = function() {
 			//console.log('x position is currently: ' + item.mesh.position.x);
 			item.mesh.position.z = i * Math.cos(j * 2 * Math.PI / (i * 2 * Math.PI / 2.0)) + Math.random();
 			//console.log('z position is currently: ' + item.mesh.position.z);
-			item.mesh.position.y = Math.random() * i * 10;
+			item.mesh.position.y = Math.random() * i * 10 + 5;
 
 			item.mesh.rotation.x = Math.random();
 
@@ -46,8 +46,9 @@ initSnow = function() {
 			
 		}
 	}	
-}
 
+	console.log('snow initialized');
+}
 
 updateSnow = function() {
 	for (var i = 0; i < snowflakes.length; i++) {
@@ -56,7 +57,7 @@ updateSnow = function() {
 			snowflakesVel[i] = 0;
 		} else {
 			snowflakes[i].mesh.position.y -= snowflakesVel[i];
-			snowflakesVel[i] = snowflakesVel[i] + 0.01;
+			snowflakesVel[i] = snowflakesVel[i] + 0.07;
 		}
 	}
 }
@@ -65,7 +66,7 @@ snowOut = function () {
 	for (var i = 0; i < snowflakes.length; i++) {
 		if (snowflakes[i].mesh.position.y >= -15) {
 			snowflakes[i].mesh.position.y -= snowflakesVel[i];
-			snowflakesVel[i] = snowflakesVel[i] + 0.01;
+			snowflakesVel[i] = snowflakesVel[i] + 0.1;
 		}
 	}
 }

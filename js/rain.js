@@ -43,7 +43,7 @@ initRain = function() {
 			//console.log('x position is currently: ' + item.mesh.position.x);
 			item.mesh.position.z = i * Math.cos(j * 2 * Math.PI / (i * 2 * Math.PI / 2.0)) + Math.random();
 			//console.log('z position is currently: ' + item.mesh.position.z);
-			item.mesh.position.y = Math.random() * i * 10 + 10;
+			item.mesh.position.y = -10;
 
 			raindrops.push(item);
 			raindropsVel.push(0);
@@ -51,20 +51,19 @@ initRain = function() {
 			
 		}
 	}	
+
+	console.log('rain initialized');
 }
 
 rainSoundOn = function() {
 	s = $('#sound-rain');
-	//s.volume = 1.0;
-	console.log(s.get(0).volume);
 	s.get(0).animate({volume: 1.0}, 800);
-	//console.log(s.volume);
+	s.muted = false;
 }
 
 rainSoundOff = function() {
 	var s = $('#sound-rain');
-	//console.log(s);
-	//s.muted = true;
+	s.muted = true;
 	s.animate({volume: 0.0}, 1500);
 }
 
@@ -76,17 +75,17 @@ updateRain = function() {
 			raindropsVel[i] = 0;
 		} else {
 			raindrops[i].mesh.position.y -= raindropsVel[i];
-			raindropsVel[i] = raindropsVel[i] + 0.01;
+			raindropsVel[i] = raindropsVel[i] + 0.07;
 		}
 	}
-	//console.log('RAIN UPDATE CALLED');
+
 }
 
 rainOut = function () {
 	for (var i = 0; i < raindrops.length; i++) {
 		if (raindrops[i].mesh.position.y >= -15) {
 			raindrops[i].mesh.position.y -= raindropsVel[i];
-			raindropsVel[i] = raindropsVel[i] + 0.01;
+			raindropsVel[i] = raindropsVel[i] + 0.1;
 		}
 	}
 }

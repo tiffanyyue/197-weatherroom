@@ -22,20 +22,6 @@ dirLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
 				dirLight.position.multiplyScalar( 50 );
 				scene.add( dirLight );
 
-				dirLight.castShadow = true;
-				dirLight.shadow.mapSize.width = 2048;
-				dirLight.shadow.mapSize.height = 2048;
-				dirLight.shadowDarkness = 0.25;
-
-				var d = 1000;
-				dirLight.shadow.camera.left = -d;
-				dirLight.shadow.camera.right = d;
-				dirLight.shadow.camera.top = d;
-				dirLight.shadow.camera.bottom = -d;
-				dirLight.shadow.camera.far = 3500;
-				dirLight.shadow.bias = -0.0001;
-
-
 camera.position.z = 5;
 
 scene.fog = new THREE.Fog(0xd8e7ff, 1, 950);
@@ -74,23 +60,22 @@ var prep = function() {
 		var name = cities.cities[i].name.replace(' ', '');
 		if (cities.cities[i].country === 'US') {
 			citiesO[name] = {country: cities.cities[i].country, id: cities.cities[i].id };
-			//console.log(citiesO[name]);
 		}
 		
 	}
-	console.log('done prepping');
+	console.log('Done preparing city data');
 }
 
 prep();
+initRain();
+initSnow();
 
 
 $('#refresh').click ( function() {
 	var city = $('.location').get(0).value.replace(' ', '');
-	console.log(citiesO[city].id);
 	weathercall(citiesO[city].id);
 	}
 )
-
 
 $('#button-rain').click( function () {
 	triggerRain();
@@ -126,13 +111,11 @@ function render() {
 			firstCloud = true;
 		}
 
-		//add necessary audio adjustments
 		if (firstRain) {
-			initRain();
-			rainSoundOn();
 			console.log('first rain');
 			firstRain = false;
 		}
+
 		updateRain();
 
 	} else if (weather === "sun") {
@@ -142,7 +125,6 @@ function render() {
 			firstSnow = true;
 		} else if (prev === "rain") {
 			rainOut();
-			rainSoundOff();
 			firstRain = true;
 		} else if (prev === "cloud") {
 			cloudOut();
@@ -163,18 +145,13 @@ function render() {
 			firstSun = true;
 		} else if (prev === "rain") {
 			rainOut();
-			if (!firstRain) {
-				rainSoundOff();
-			}
 			firstRain = true;
 		} else if (prev === "cloud") {
 			cloudOut();
 			firstCloud = true;
 		}
 
-		//add necessary audio adjustments
 		if (firstSnow) {
-			initSnow();
 			console.log('first snow');
 			firstSnow = false;
 		}
@@ -186,7 +163,6 @@ function render() {
 			firstSun = true;
 		} else if (prev === "rain") {
 			rainOut();
-			rainSoundOff();
 			firstRain = true;
 		} else if (prev === "snow") {
 			snowOut();

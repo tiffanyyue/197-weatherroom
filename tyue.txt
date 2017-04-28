@@ -4,5 +4,4 @@ To do:
 - add color transitions for background and ground
 - why aren't my shadows appearing??
 - how do I get it to update every 10 minutes?
-	//set timeout on 10000, everlasting timeout
-	//wrap AJAX code in easily 
+	//set timeout on 10000, everlasting timeout 
